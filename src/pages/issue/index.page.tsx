@@ -1,3 +1,10 @@
+import { BannerWithInformations } from '@/components/BannerWithInformations'
+import { IssueContainer } from './styles'
+
 export default function Issue() {
-  return <h1>issues</h1>
+  return (
+    <IssueContainer className="container">
+      <BannerWithInformations size="md" avatar_url="" html_url="" />
+    </IssueContainer>
+  )
 }
