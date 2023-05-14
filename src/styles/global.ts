@@ -56,8 +56,6 @@ export const GlobalStyles = createGlobalStyle`
 
   .container {
   max-width: 53rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+margin: 0 auto;
   }
 `

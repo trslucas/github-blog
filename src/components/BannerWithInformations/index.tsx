@@ -11,16 +11,26 @@ import imageUser from '../../../public/images/githubprofile.png'
 
 interface BannerWithInformationsProps {
   avatarUrl?: string
-  userName?: string
-  userDescription?: string
+  name?: string
+  login?: string
+  bio?: string
   issueTitle?: string
   size: 'lg' | 'md'
+  company?: string
+  followers?: number
+  html_url: string
 }
 
 export function BannerWithInformations({
   size,
-  userName,
-  userDescription,
+  login,
+  bio,
+  name,
+  company,
+  followers,
+  html_url,
+  // eslint-disable-next-line camelcase
+  avatarUrl,
 }: BannerWithInformationsProps) {
   return (
     <BannerWithInformationsContainer size={size}>
@@ -32,18 +42,16 @@ export function BannerWithInformations({
 
           <UserInformationsContainer>
             <UserPriorityInfos>
-              <div>{(userName = 'trslucas')} </div>
-              <Link href={''}>github</Link>
+              <h2>{name} </h2>
+              <Link href={html_url} target="blank">
+                github
+              </Link>
             </UserPriorityInfos>
-            <p>
-              Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
-              viverra massa quam dignissim aenean malesuada suscipit. Nunc,
-              volutpat pulvinar vel mass.
-            </p>
+            <p>{bio}</p>
             <div className="social">
-              <p>githubUser</p>
-              <p>work</p>
-              <p>followers</p>
+              <p>{login}</p>
+              <p>{company}</p>
+              <p>{followers}</p>
             </div>
           </UserInformationsContainer>
         </div>
@@ -55,8 +63,7 @@ export function BannerWithInformations({
 
           <UserInformationsContainer>
             <UserPriorityInfos>
-              <div>{(userName = 'trslucas')} </div>
-              <Link href={''}>github</Link>
+              <Link href={html_url}>{html_url}</Link>
             </UserPriorityInfos>
           </UserInformationsContainer>
         </div>

@@ -39,7 +39,7 @@ export const BannerWithInformationsContainer = styled.div<BannerWithInformations
 `
 export const AvatarUserContainer = styled.div`
   img {
-    background-color: blue;
+    border-radius: 6px;
   }
 `
 
