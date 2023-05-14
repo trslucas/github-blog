@@ -3,6 +3,8 @@ import {
   PublicationsContainer,
   PublicationsFormContainer,
   PublicationsInfos,
+  PublicationsNumber,
+  Title,
 } from './styles'
 
 export function Publications() {
@@ -10,8 +12,8 @@ export function Publications() {
     <PublicationsContainer>
       <PublicationsFormContainer>
         <PublicationsInfos>
-          <span>Publicações</span>
-          <span>6 publicações</span>
+          <Title>Publicações</Title>
+          <PublicationsNumber>6 publicações</PublicationsNumber>
         </PublicationsInfos>
         <SearchComponentForm />
       </PublicationsFormContainer>

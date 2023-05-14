@@ -1,3 +1,4 @@
+import { TextTitle } from '@/components/BannerWithInformations/styles'
 import styled from 'styled-components'
 
 export const PublicationsContainer = styled.section`
@@ -17,4 +18,12 @@ export const PublicationsFormContainer = styled.div`
 export const PublicationsInfos = styled.div`
   display: flex;
   justify-content: space-between;
+`
+
+export const Title = styled(TextTitle)`
+  font-size: 1.2rem;
+`
+
+export const PublicationsNumber = styled.span`
+  color: ${({ theme }) => theme.colors['base-span']};
 `

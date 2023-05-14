@@ -22,7 +22,7 @@ export default function Home() {
     return response.data
   })
 
-  const src = `${data?.avatar_url}`
+  const avatar_url = `${data?.avatar_url}`
 
   return (
     <HomeContainer className="container">
@@ -31,7 +31,7 @@ export default function Home() {
           size="lg"
           name={data.name}
           login={data.login}
-          avatarUrl={src}
+          avatar_url={avatar_url}
           bio={data.bio}
           company={data.company}
           followers={data.followers}

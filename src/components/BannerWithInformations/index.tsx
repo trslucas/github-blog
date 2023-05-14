@@ -2,15 +2,27 @@ import Link from 'next/link'
 import {
   AvatarUserContainer,
   BannerWithInformationsContainer,
+  BioInfos,
+  LinkContainer,
+  SocialUserInformations,
+  TextTitle,
+  UserContainer,
   UserInformationsContainer,
   UserPriorityInfos,
 } from './styles'
 import Image from 'next/image'
 
-import imageUser from '../../../public/images/githubprofile.png'
+import { InfoWithIcon } from '../InfoWithIcon'
+
+import {
+  GithubLogo,
+  Users,
+  Buildings,
+  ArrowSquareOut,
+} from '@phosphor-icons/react'
 
 interface BannerWithInformationsProps {
-  avatarUrl?: string
+  avatar_url: string
   name?: string
   login?: string
   bio?: string
@@ -30,43 +42,51 @@ export function BannerWithInformations({
   followers,
   html_url,
   // eslint-disable-next-line camelcase
-  avatarUrl,
+  avatar_url,
 }: BannerWithInformationsProps) {
   return (
     <BannerWithInformationsContainer size={size}>
       {size === 'lg' ? (
-        <div>
+        <UserContainer>
           <AvatarUserContainer>
-            <Image src={imageUser} width={148} height={148} alt="" />
+            <Image src={avatar_url} width={148} height={148} alt="" />
           </AvatarUserContainer>
 
           <UserInformationsContainer>
             <UserPriorityInfos>
-              <h2>{name} </h2>
-              <Link href={html_url} target="blank">
-                github
-              </Link>
+              <TextTitle>{name} </TextTitle>
+              <LinkContainer>
+                <Link href={html_url} target="blank">
+                  GITHUB
+                  <ArrowSquareOut size={18} weight="fill" />
+                </Link>
+              </LinkContainer>
             </UserPriorityInfos>
-            <p>{bio}</p>
-            <div className="social">
-              <p>{login}</p>
-              <p>{company}</p>
-              <p>{followers}</p>
-            </div>
+            <BioInfos>{bio}</BioInfos>
+            <SocialUserInformations>
+              <InfoWithIcon
+                icon={<GithubLogo size={22} weight="fill" />}
+                text={login}
+              />
+              <InfoWithIcon
+                icon={<Buildings size={22} weight="fill" />}
+                text={company}
+              />
+              <InfoWithIcon
+                icon={<Users size={22} weight="fill" />}
+                text={`${followers} seguidores`}
+              />
+            </SocialUserInformations>
           </UserInformationsContainer>
-        </div>
+        </UserContainer>
       ) : (
-        <div>
-          <AvatarUserContainer>
-            <Image src={imageUser} width={148} height={148} alt="" />
-          </AvatarUserContainer>
-
+        <UserContainer>
           <UserInformationsContainer>
             <UserPriorityInfos>
               <Link href={html_url}>{html_url}</Link>
             </UserPriorityInfos>
           </UserInformationsContainer>
-        </div>
+        </UserContainer>
       )}
     </BannerWithInformationsContainer>
   )

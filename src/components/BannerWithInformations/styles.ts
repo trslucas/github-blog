@@ -16,15 +16,6 @@ export const BannerWithInformationsContainer = styled.div<BannerWithInformations
   padding: 0 2.5rem;
   box-shadow: 1px 1px 8px #000;
 
-  > div {
-    display: flex;
-
-    align-items: start;
-    justify-content: center;
-    width: 100%;
-    gap: 1.5rem;
-  }
-
   ${({ size }) =>
     size === 'lg' &&
     css`
@@ -43,6 +34,15 @@ export const AvatarUserContainer = styled.div`
   }
 `
 
+export const UserContainer = styled.div`
+  display: flex;
+
+  align-items: start;
+  justify-content: center;
+  width: 100%;
+  gap: 1.5rem;
+`
+
 export const UserPriorityInfos = styled.div`
   width: 100%;
   display: flex;
@@ -52,6 +52,14 @@ export const UserPriorityInfos = styled.div`
   justify-content: space-between;
 `
 
+export const TextTitle = styled.h2`
+  font-size: 2rem;
+  font-weight: bold;
+  color: ${({ theme }) => theme.colors['base-title']};
+`
+export const BioInfos = styled.p`
+  color: ${({ theme }) => theme.colors['base-text']};
+`
 export const UserInformationsContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -62,11 +70,25 @@ export const UserInformationsContainer = styled.div`
   strong {
     font-size: 5rem;
   }
+`
+export const SocialUserInformations = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+`
 
-  .social {
+export const LinkContainer = styled.div`
+  a {
+    font-size: 0.85rem;
     display: flex;
-    align-items: center;
+    display: flex;
+    gap: 5px;
+    font-weight: bold;
     justify-content: center;
-    gap: 3rem;
+
+    align-items: center;
+
+    color: ${({ theme }) => theme.colors['brand-blue']};
   }
 `

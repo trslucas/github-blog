@@ -10,6 +10,8 @@ export const SearchPublicationInput = styled.input`
   background: ${({ theme }) => theme.colors['base-input']};
   border: 1px solid ${({ theme }) => theme.colors['base-border']};
   border-radius: 6px;
+  padding: 1rem;
+  color: ${({ theme }) => theme.colors['base-text']};
 `
 
 export const PublicationsCardsContainer = styled.div`
@@ -18,6 +20,7 @@ export const PublicationsCardsContainer = styled.div`
   grid-template-columns: repeat(2, 1fr);
   row-gap: 2rem;
   width: 100%;
+  margin-left: 0.5rem;
 `
 
 export const PublicationCard = styled.div`
