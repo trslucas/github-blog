@@ -26,6 +26,12 @@ export const BannerWithInformationsContainer = styled.div<BannerWithInformations
     size === 'md' &&
     css`
       height: 168px;
+      align-items: center;
+      justify-content: start;
+
+      h2 {
+        font-size: 1.7rem;
+      }
     `}
 `
 export const AvatarUserContainer = styled.div`
@@ -82,7 +88,6 @@ export const LinkContainer = styled.div`
   a {
     font-size: 0.85rem;
     display: flex;
-    display: flex;
     gap: 5px;
     font-weight: bold;
     justify-content: center;
@@ -91,4 +96,23 @@ export const LinkContainer = styled.div`
 
     color: ${({ theme }) => theme.colors['brand-blue']};
   }
+`
+
+export const IssueInfosContainer = styled.div`
+  display: flex;
+  flex: 1;
+  gap: 1.5rem;
+  flex-direction: column;
+`
+
+export const IssuesLinkContainer = styled(LinkContainer)`
+  display: flex;
+  justify-content: space-between;
+`
+
+export const IssuesInformations = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1rem;
 `

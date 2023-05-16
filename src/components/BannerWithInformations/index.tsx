@@ -3,6 +3,9 @@ import {
   AvatarUserContainer,
   BannerWithInformationsContainer,
   BioInfos,
+  IssueInfosContainer,
+  IssuesInformations,
+  IssuesLinkContainer,
   LinkContainer,
   SocialUserInformations,
   TextTitle,
@@ -19,6 +22,7 @@ import {
   Users,
   Buildings,
   ArrowSquareOut,
+  CaretLeft,
 } from '@phosphor-icons/react'
 
 interface BannerWithInformationsProps {
@@ -31,6 +35,8 @@ interface BannerWithInformationsProps {
   company?: string
   followers?: number
   html_url: string
+  timePassed?: number | string
+  comments?: number | string
 }
 
 export function BannerWithInformations({
@@ -41,6 +47,9 @@ export function BannerWithInformations({
   company,
   followers,
   html_url,
+  comments,
+  issueTitle,
+  timePassed,
   // eslint-disable-next-line camelcase
   avatar_url,
 }: BannerWithInformationsProps) {
@@ -80,13 +89,36 @@ export function BannerWithInformations({
           </UserInformationsContainer>
         </UserContainer>
       ) : (
-        <UserContainer>
-          <UserInformationsContainer>
-            <UserPriorityInfos>
-              <Link href={html_url}>{html_url}</Link>
-            </UserPriorityInfos>
-          </UserInformationsContainer>
-        </UserContainer>
+        <IssueInfosContainer>
+          <IssuesLinkContainer>
+            <Link href={'/'}>
+              <CaretLeft size={18} />
+              VOLTAR
+            </Link>
+            <Link href={html_url} target="blank">
+              VER NO GITHUB
+              <ArrowSquareOut size={18} weight="fill" />
+            </Link>
+          </IssuesLinkContainer>
+          <IssuesInformations>
+            <TextTitle>{issueTitle} </TextTitle>
+
+            <SocialUserInformations>
+              <InfoWithIcon
+                icon={<GithubLogo size={22} weight="fill" />}
+                text={login}
+              />
+              <InfoWithIcon
+                icon={<Buildings size={22} weight="fill" />}
+                text={timePassed}
+              />
+              <InfoWithIcon
+                icon={<Users size={22} weight="fill" />}
+                text={comments}
+              />
+            </SocialUserInformations>
+          </IssuesInformations>
+        </IssueInfosContainer>
       )}
     </BannerWithInformationsContainer>
   )

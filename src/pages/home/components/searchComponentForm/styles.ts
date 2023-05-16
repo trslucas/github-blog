@@ -13,7 +13,6 @@ export const SearchPublicationInput = styled.input`
   padding: 1rem;
   color: ${({ theme }) => theme.colors['base-text']};
 `
-
 export const PublicationsCardsContainer = styled.div`
   margin-top: 4rem;
   display: grid;
@@ -21,11 +20,4 @@ export const PublicationsCardsContainer = styled.div`
   row-gap: 2rem;
   width: 100%;
   margin-left: 0.5rem;
-`
-
-export const PublicationCard = styled.div`
-  border-radius: 8px;
-  background: ${({ theme }) => theme.colors['base-post']};
-  width: 25rem;
-  height: 16.25rem;
 `

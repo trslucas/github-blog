@@ -1,5 +1,5 @@
+import { PublicationCard } from '../publicationCard'
 import {
-  PublicationCard,
   PublicationsCardsContainer,
   SearchPublicationFormContainer,
   SearchPublicationInput,
