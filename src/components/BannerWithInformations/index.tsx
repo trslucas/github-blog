@@ -23,6 +23,8 @@ import {
   Buildings,
   ArrowSquareOut,
   CaretLeft,
+  CalendarBlank,
+  ChatCircle,
 } from '@phosphor-icons/react'
 
 interface BannerWithInformationsProps {
@@ -109,11 +111,11 @@ export function BannerWithInformations({
                 text={login}
               />
               <InfoWithIcon
-                icon={<Buildings size={22} weight="fill" />}
+                icon={<CalendarBlank size={22} weight="fill" />}
                 text={timePassed}
               />
               <InfoWithIcon
-                icon={<Users size={22} weight="fill" />}
+                icon={<ChatCircle size={22} weight="fill" />}
                 text={comments}
               />
             </SocialUserInformations>
