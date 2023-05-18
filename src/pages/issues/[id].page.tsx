@@ -39,7 +39,7 @@ export default function Issue() {
           login={data?.user?.login}
           comments={`${data?.comments} comentários`}
           issueTitle={data?.title}
-          timePassed={data?.updated_at}
+          timePassed={String(data?.updated_at)}
         />
       )}
 

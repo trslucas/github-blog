@@ -9,7 +9,6 @@ import * as z from 'zod'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { FormProvider, useForm } from 'react-hook-form'
-import { useQuery } from '@tanstack/react-query'
 import axios from 'axios'
 
 import { useCallback, useEffect, useState } from 'react'
@@ -86,7 +85,7 @@ export default function SearchComponentForm() {
           type="text"
           placeholder="Buscar Conteúdo"
           {...register('query')}
-          disabled={noIssues}
+          disabled={noIssues || isLoading}
         />
         <PublicationsCardsContainer>
           {issues?.map((issue) => {
