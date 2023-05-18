@@ -46,7 +46,7 @@ export default function SearchComponentForm() {
     resolver: zodResolver(searchFormSchema),
   })
 
-  const { handleSubmit, register, reset } = searchForm
+  const { handleSubmit, register } = searchForm
 
   const getIssues = useCallback(async (query: string = '') => {
     try {
@@ -63,28 +63,13 @@ export default function SearchComponentForm() {
     }
   }, [])
 
+  console.log(issues)
   useEffect(() => {
     getIssues()
   }, [getIssues])
 
-  // const { data } = useQuery<Issue>(['issues'], async () => {
-  //   const response = await axios.get(
-  //     `https://api.github.com/search/issues?q=repo:trslucas/fundamentos-next`,
-  //   )
-
-  //   const issuesData = response?.data.items
-
-  //   setIssues(issuesData)
-  //   return issuesData
-  // })
-
   async function handleConfirmData(data: SearchData) {
-    const result = await axios.get(
-      `https://api.github.com/search/issues?q=${data.query}%20repo:trslucas/fundamentos-next`,
-    )
-
-    setIssues(result.data)
-    reset()
+    getIssues(data?.query)
   }
 
   async function goToIssue(id: number) {
