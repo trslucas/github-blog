@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components'
 
-export interface BannerWithInformationsContainerProps {
+export interface HomeBannerInformationsProps {
   size: 'lg' | 'md'
 }
 
-export const BannerWithInformationsContainer = styled.div<BannerWithInformationsContainerProps>`
+export const HomeBannerInformationsContainer = styled.div<HomeBannerInformationsProps>`
   width: 864px;
   display: flex;
   align-items: center;

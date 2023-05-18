@@ -1,4 +1,4 @@
-import { TextTitle } from '@/components/BannerWithInformations/styles'
+import { TextTitle } from '@/components/HomeBannerInformations/styles'
 import styled from 'styled-components'
 
 export const PublicationsContainer = styled.section`

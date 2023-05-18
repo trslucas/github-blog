@@ -12,6 +12,11 @@ export const SearchPublicationInput = styled.input`
   border-radius: 6px;
   padding: 1rem;
   color: ${({ theme }) => theme.colors['base-text']};
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.4;
+  }
 `
 export const PublicationsCardsContainer = styled.div`
   margin-top: 4rem;

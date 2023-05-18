@@ -1,4 +1,4 @@
-import { BannerWithInformations } from '@/components/BannerWithInformations'
+import { HomeBannerInformations } from '@/components/HomeBannerInformations'
 import { HomeContainer } from './styles'
 import { Publications } from './components/publications'
 import { useQuery } from '@tanstack/react-query'
@@ -27,7 +27,7 @@ export default function Home() {
   return (
     <HomeContainer className="container">
       {data && (
-        <BannerWithInformations
+        <HomeBannerInformations
           size="lg"
           name={data.name}
           login={data.login}

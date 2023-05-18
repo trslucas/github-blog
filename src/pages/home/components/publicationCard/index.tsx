@@ -1,18 +1,29 @@
 import { Title } from '../publications/styles'
 import { Header, PublicationCardContainer } from './styles'
 
-export function PublicationCard() {
+interface PublicationCardProps {
+  body?: string
+  comments?: number
+  comments_url?: string
+  html_url?: string
+  title?: string
+  updated_at: Date
+  number?: number
+}
+
+export function PublicationCard({
+  body,
+  title,
+  number,
+  updated_at,
+}: PublicationCardProps) {
   return (
     <PublicationCardContainer>
       <Header>
-        <Title>Javascript data types and data structure</Title>
-        <span>Há 1 dia</span>
+        <Title>{title}</Title>
+        <span>{updated_at}</span>
       </Header>
-      <p>
-        Programming languages all have built-in data structures, but these often
-        differ from one language to another. This article attempts to list the
-        built-in data structures available in...
-      </p>
+      <p>{body}</p>
     </PublicationCardContainer>
   )
 }
