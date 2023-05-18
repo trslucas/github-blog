@@ -6,10 +6,10 @@ export const PublicationCardContainer = styled.div`
   width: 25rem;
   height: 16.25rem;
   padding: 1.5rem;
-  transition: 0.5s;
+  border: 1px solid ${({ theme }) => theme.colors['base-post']};
 
   &:hover {
-    background: ${({ theme }) => theme.colors['base-label']} 50%;
+    border: 1px solid ${({ theme }) => theme.colors['base-label']};
   }
 `
 
