@@ -6,6 +6,11 @@ export const PublicationCardContainer = styled.div`
   width: 25rem;
   height: 16.25rem;
   padding: 1.5rem;
+  transition: 0.5s;
+
+  &:hover {
+    background: ${({ theme }) => theme.colors['base-label']} 50%;
+  }
 `
 
 export const Header = styled.div`

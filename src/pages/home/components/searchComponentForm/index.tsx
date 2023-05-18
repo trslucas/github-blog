@@ -61,8 +61,6 @@ export default function SearchComponentForm() {
       setIsLoading(false)
     }
   }, [])
-
-  console.log(issues)
   useEffect(() => {
     getIssues()
   }, [getIssues])
@@ -74,8 +72,8 @@ export default function SearchComponentForm() {
   async function goToIssue(id: number) {
     router.push(`/issues/${id}`)
   }
-
   const noIssues = issues?.length <= 0
+
   return (
     <FormProvider {...searchForm}>
       <SearchPublicationFormContainer

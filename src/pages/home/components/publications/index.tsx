@@ -13,7 +13,7 @@ export function Publications() {
       <PublicationsFormContainer>
         <PublicationsInfos>
           <Title>Publicações</Title>
-          <PublicationsNumber>6 publicações</PublicationsNumber>
+          <PublicationsNumber></PublicationsNumber>
         </PublicationsInfos>
         <SearchComponentForm />
       </PublicationsFormContainer>
