@@ -9,18 +9,16 @@ import * as z from 'zod'
 
 import { zodResolver } from '@hookform/resolvers/zod'
 import { FormProvider, useForm } from 'react-hook-form'
-import axios from 'axios'
-
-import { useCallback, useEffect, useState } from 'react'
 
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import UseIssue from '@/hooks/useIssues'
 
 const searchFormSchema = z.object({
   query: z.string(),
 })
 
-interface Issue {
+export interface Issue {
   body?: string
   comments?: number
   comments_url?: string
@@ -37,37 +35,15 @@ export type SearchData = z.infer<typeof searchFormSchema>
 type SearchFormData = SearchData
 
 export default function SearchComponentForm() {
+  const { issues, handleConfirmData } = UseIssue()
+
   const router = useRouter()
-  const [issues, setIssues] = useState<Issue[]>([])
-  const [isLoading, setIsLoading] = useState(true)
 
   const searchForm = useForm<SearchFormData>({
     resolver: zodResolver(searchFormSchema),
   })
 
   const { handleSubmit, register } = searchForm
-
-  const getIssues = useCallback(async (query: string = '') => {
-    try {
-      setIsLoading(true)
-      const response = await axios.get(
-        `https://api.github.com/search/issues?q=${query}%20repo:trslucas/fundamentos-next`,
-      )
-
-      const issuesData = response?.data.items
-
-      setIssues(issuesData)
-    } finally {
-      setIsLoading(false)
-    }
-  }, [])
-  useEffect(() => {
-    getIssues()
-  }, [getIssues])
-
-  async function handleConfirmData(data: SearchData) {
-    getIssues(data?.query)
-  }
 
   async function goToIssue(id: number) {
     router.push(`/issues/${id}`)
@@ -83,7 +59,7 @@ export default function SearchComponentForm() {
           type="text"
           placeholder="Buscar Conteúdo"
           {...register('query')}
-          disabled={noIssues || isLoading}
+          disabled={noIssues}
         />
         <PublicationsCardsContainer>
           {issues?.map((issue) => {

@@ -1,3 +1,4 @@
+import UseIssue from '@/hooks/useIssues'
 import SearchComponentForm from '../searchComponentForm'
 import {
   PublicationsContainer,
@@ -8,12 +9,14 @@ import {
 } from './styles'
 
 export function Publications() {
+  const { issues } = UseIssue()
+
   return (
     <PublicationsContainer>
       <PublicationsFormContainer>
         <PublicationsInfos>
           <Title>Publicações</Title>
-          <PublicationsNumber></PublicationsNumber>
+          <PublicationsNumber>{issues.length} publicações</PublicationsNumber>
         </PublicationsInfos>
         <SearchComponentForm />
       </PublicationsFormContainer>
