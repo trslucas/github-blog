@@ -4,7 +4,7 @@ import { Header, PublicationCardContainer } from './styles'
 interface PublicationCardProps {
   body?: string
   title?: string
-  updated_at: Date
+  updated_at: Date | number | string
 }
 
 export function PublicationCard({

@@ -37,6 +37,7 @@ export function IssuesContextProvider({
       console.log('fim')
     }
   }, [])
+
   useEffect(() => {
     getIssues()
   }, [getIssues])

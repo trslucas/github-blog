@@ -28,7 +28,10 @@ export default function Issue() {
 
     return response?.data
   })
-
+  const date = String(data?.updated_at)
+  const timePassed = Date.now() - new Date(date).getTime()
+  const dayInMiliSeconds = 86400000 // 24 horas
+  const timePassedInMili = Math.floor(timePassed / dayInMiliSeconds)
   return (
     <IssueContainer className="container">
       {data && (
@@ -39,7 +42,11 @@ export default function Issue() {
           login={data?.user?.login}
           comments={`${data?.comments} comentários`}
           issueTitle={data?.title}
-          timePassed={String(data?.updated_at)}
+          timePassed={
+            timePassedInMili <= 1
+              ? `Há ${timePassedInMili} dia`
+              : `Há ${timePassedInMili} dias`
+          }
         />
       )}
 

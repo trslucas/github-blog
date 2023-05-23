@@ -24,7 +24,7 @@ export interface Issue {
   comments_url?: string
   html_url?: string
   title?: string
-  updated_at: Date
+  updated_at: Date | number | string
   number: number
   user: {
     login: string
@@ -63,6 +63,11 @@ export default function SearchComponentForm() {
         />
         <PublicationsCardsContainer>
           {issues?.map((issue) => {
+            const date = issue?.updated_at
+            const timePassed = Date.now() - new Date(date).getTime()
+            const dayInMiliSeconds = 86400000 // 24 horas
+            const timePassedInMili = Math.floor(timePassed / dayInMiliSeconds)
+
             return (
               <Link
                 onClick={() => goToIssue(issue.number)}
@@ -72,7 +77,11 @@ export default function SearchComponentForm() {
                 <PublicationCard
                   body={issue?.body}
                   title={issue?.title}
-                  updated_at={issue?.updated_at}
+                  updated_at={
+                    timePassedInMili <= 1
+                      ? `Há ${timePassedInMili} dia`
+                      : `Há ${timePassedInMili} dias`
+                  }
                 />
               </Link>
             )
