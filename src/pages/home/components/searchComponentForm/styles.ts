@@ -25,4 +25,9 @@ export const PublicationsCardsContainer = styled.div`
   row-gap: 2rem;
   width: 100%;
   margin-left: 0.5rem;
+
+  @media (max-width: 53rem) {
+    grid-template-columns: repeat(1, 1fr);
+    margin-left: 1.5rem;
+  }
 `

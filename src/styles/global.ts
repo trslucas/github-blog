@@ -56,7 +56,13 @@ export const GlobalStyles = createGlobalStyle`
 
   .container {
   max-width: 53rem;
+  width: 100%;
   margin: 0 auto;
   padding-bottom: 5rem;
+
+  @media(max-width: 53rem){
+    padding: 0 1rem;
   }
+  }
+  
 `

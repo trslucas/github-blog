@@ -11,6 +11,11 @@ export const PublicationCardContainer = styled.div`
   &:hover {
     border: 1px solid ${({ theme }) => theme.colors['base-label']};
   }
+
+  @media (max-width: 53rem) {
+    width: 24.45rem;
+    height: 16.25rem;
+  }
 `
 
 export const Header = styled.div`

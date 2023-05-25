@@ -43,9 +43,6 @@ export function HomeBannerInformations({
   company,
   followers,
   html_url,
-  comments,
-  issueTitle,
-  timePassed,
   // eslint-disable-next-line camelcase
   avatar_url,
 }: HomeBannerInformationsProps) {

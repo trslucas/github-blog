@@ -7,7 +7,6 @@ import {
   useEffect,
   useState,
 } from 'react'
-
 interface IssuesContextType {
   issues: Issue[]
   handleConfirmData: (data: SearchData) => Promise<void>

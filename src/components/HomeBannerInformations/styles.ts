@@ -1,42 +1,47 @@
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 
 export interface HomeBannerInformationsProps {
   size: 'lg' | 'md'
 }
 
 export const HomeBannerInformationsContainer = styled.div<HomeBannerInformationsProps>`
-  width: 864px;
+  width: 52.875rem;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 2rem;
+  height: 212px;
   background: ${({ theme }) => theme.colors['base-profile']};
   margin-top: -4.25rem;
   border-radius: 6px;
   padding: 0 2.5rem;
   box-shadow: 1px 1px 8px #000;
 
-  ${({ size }) =>
-    size === 'lg' &&
-    css`
-      height: 212px;
-    `};
+  @media (max-width: 53rem) {
+    width: 28rem;
 
-  ${({ size }) =>
-    size === 'md' &&
-    css`
-      height: 168px;
-      align-items: center;
-      justify-content: start;
-
-      h2 {
-        font-size: 1.7rem;
-      }
-    `}
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 3rem;
+    }
+    p {
+      font-size: 0.85rem;
+      width: 80%;
+    }
+  }
 `
 export const AvatarUserContainer = styled.div`
   img {
     border-radius: 6px;
+  }
+
+  @media (max-width: 53rem) {
+    img {
+      width: 80px;
+      height: 80px;
+    }
+    margin-top: 3rem;
+    margin-left: 2rem;
   }
 `
 
@@ -47,6 +52,10 @@ export const UserContainer = styled.div`
   justify-content: center;
   width: 100%;
   gap: 1.5rem;
+
+  @media (max-width: 53rem) {
+    padding-right: 2rem;
+  }
 `
 
 export const UserPriorityInfos = styled.div`
@@ -62,6 +71,12 @@ export const TextTitle = styled.h2`
   font-size: 2rem;
   font-weight: bold;
   color: ${({ theme }) => theme.colors['base-title']};
+
+  @media (max-width: 53rem) {
+    h2 {
+      font-size: 1.3rem;
+    }
+  }
 `
 export const BioInfos = styled.p`
   color: ${({ theme }) => theme.colors['base-text']};
@@ -76,12 +91,27 @@ export const UserInformationsContainer = styled.div`
   strong {
     font-size: 5rem;
   }
+
+  @media (max-width: 53rem) {
+    margin-bottom: -1rem;
+  }
 `
 export const SocialUserInformations = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 3rem;
+
+  @media (max-width: 53rem) {
+    padding-bottom: 1.5rem;
+    span {
+      font-size: 0.65rem;
+    }
+
+    margin-bottom: 2rem;
+
+    margin-top: -2rem;
+  }
 `
 
 export const LinkContainer = styled.div`
@@ -95,6 +125,10 @@ export const LinkContainer = styled.div`
     align-items: center;
 
     color: ${({ theme }) => theme.colors['brand-blue']};
+  }
+
+  @media (max-width: 53rem) {
+    margin-top: 3rem;
   }
 `
 
